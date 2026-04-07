@@ -16,7 +16,7 @@ The app will be available at **http://localhost:3000**.
 
 ## Configuration
 
-All settings live in `.env`. The app works out of the box — every variable is optional.
+All settings live in `.env`. The app works out of the box - every variable is optional.
 
 | Variable | Purpose |
 |---|---|
