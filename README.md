@@ -1,6 +1,6 @@
-# LeedPDF — Self-Hosted
+# LeedPDF - Self-Hosted
 
-Docker setup to self-host [LeedPDF](https://github.com/rudi-q/leed_pdf_viewer), an open-source PDF annotation tool.
+Docker setup to self-host [LeedPDF](https://github.com/rudi-q/leed_pdf_viewer), an **open-source** PDF annotation tool.
 
 ## Quick Start
 
