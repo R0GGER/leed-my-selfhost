@@ -1,19 +1,6 @@
 services:
   leedpdf:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        LEEDPDF_VERSION: main
-        # Public env vars are baked in at build time by SvelteKit.
-        # Rebuild the image after changing any of these.
-        PUBLIC_POSTHOG_KEY: ${PUBLIC_POSTHOG_KEY:-}
-        PUBLIC_APPWRITE_ENDPOINT: ${PUBLIC_APPWRITE_ENDPOINT:-}
-        PUBLIC_APPWRITE_PROJECT_ID: ${PUBLIC_APPWRITE_PROJECT_ID:-}
-        PUBLIC_APPWRITE_DATABASE_ID: ${PUBLIC_APPWRITE_DATABASE_ID:-}
-        PUBLIC_APPWRITE_STORAGE_BUCKET_ID: ${PUBLIC_APPWRITE_STORAGE_BUCKET_ID:-}
-        PUBLIC_APPWRITE_SHARED_PDFS_COLLECTION_ID: ${PUBLIC_APPWRITE_SHARED_PDFS_COLLECTION_ID:-}
-        PUBLIC_APPWRITE_PDF_ANNOTATIONS_COLLECTION_ID: ${PUBLIC_APPWRITE_PDF_ANNOTATIONS_COLLECTION_ID:-}
+    image: ghcr.io/r0gger/leed-my-selfhost:latest
     container_name: leedpdf
     restart: unless-stopped
     ports:
