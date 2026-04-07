@@ -26,7 +26,7 @@ All settings live in `.env`. The app works out of the box — every variable is 
 | `PUBLIC_POSTHOG_KEY` | PostHog analytics (optional) |
 | `PUBLIC_APPWRITE_*` | Appwrite backend for PDF sharing (optional) |
 
-> **Note:** `PUBLIC_*` variables are baked in at build time. Rebuild after changing them:
+> **Note:** `PUBLIC_*` variables are baked in at build time. Rebuild after changing them:   
 > `docker compose up --build -d`
 
 ## Pin a Version
