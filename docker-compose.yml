@@ -1,0 +1,30 @@
+services:
+  leedpdf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        LEEDPDF_VERSION: main
+        # Public env vars are baked in at build time by SvelteKit.
+        # Rebuild the image after changing any of these.
+        PUBLIC_POSTHOG_KEY: ${PUBLIC_POSTHOG_KEY:-}
+        PUBLIC_APPWRITE_ENDPOINT: ${PUBLIC_APPWRITE_ENDPOINT:-}
+        PUBLIC_APPWRITE_PROJECT_ID: ${PUBLIC_APPWRITE_PROJECT_ID:-}
+        PUBLIC_APPWRITE_DATABASE_ID: ${PUBLIC_APPWRITE_DATABASE_ID:-}
+        PUBLIC_APPWRITE_STORAGE_BUCKET_ID: ${PUBLIC_APPWRITE_STORAGE_BUCKET_ID:-}
+        PUBLIC_APPWRITE_SHARED_PDFS_COLLECTION_ID: ${PUBLIC_APPWRITE_SHARED_PDFS_COLLECTION_ID:-}
+        PUBLIC_APPWRITE_PDF_ANNOTATIONS_COLLECTION_ID: ${PUBLIC_APPWRITE_PDF_ANNOTATIONS_COLLECTION_ID:-}
+    container_name: leedpdf
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - ORIGIN=${ORIGIN:-http://localhost:3000}
+      - BRAVE_SEARCH_API_KEY=${BRAVE_SEARCH_API_KEY:-}
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
