@@ -24,14 +24,6 @@ All settings live in `.env`. The app works out of the box — every variable is 
 | `PORT` | Host port (default: `3000`) |
 | `BRAVE_SEARCH_API_KEY` | Enables the PDF search feature ([get a free key](https://api.search.brave.com/app/keys)) |
 
-## Build from Source
-
-If you prefer to build the image yourself instead of using the pre-built one:
-
-```bash
-docker compose -f docker-compose.yml -f docker-compose.build.yml up --build -d
-```
-
 ## License
 
 The Docker configuration in this repo is provided as-is. LeedPDF itself is licensed under [AGPL-3.0](https://github.com/rudi-q/leed_pdf_viewer/blob/main/LICENSE).
