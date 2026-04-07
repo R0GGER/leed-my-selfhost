@@ -1,4 +1,4 @@
-# LeedPDF - Self-Hosted
+# LeedPDF / Self-Hosted
 
 Docker setup to self-host [LeedPDF](https://github.com/rudi-q/leed_pdf_viewer), an **open-source** PDF annotation tool.
 
@@ -8,8 +8,8 @@ Docker setup to self-host [LeedPDF](https://github.com/rudi-q/leed_pdf_viewer), 
 # 1. Configure environment
 cp .env.example .env   # edit .env as needed
 
-# 2. Build and run
-docker compose up --build -d
+# 2. Pull and run
+docker compose up -d
 ```
 
 The app will be available at **http://localhost:3000**.
@@ -23,19 +23,13 @@ All settings live in `.env`. The app works out of the box — every variable is 
 | `ORIGIN` | Public URL of your instance (e.g. `https://pdf.example.com`). Required when not on localhost. |
 | `PORT` | Host port (default: `3000`) |
 | `BRAVE_SEARCH_API_KEY` | Enables the PDF search feature ([get a free key](https://api.search.brave.com/app/keys)) |
-| `PUBLIC_POSTHOG_KEY` | PostHog analytics (optional) |
-| `PUBLIC_APPWRITE_*` | Appwrite backend for PDF sharing (optional) |
 
-> **Note:** `PUBLIC_*` variables are baked in at build time. Rebuild after changing them:   
-> `docker compose up --build -d`
+## Build from Source
 
-## Pin a Version
+If you prefer to build the image yourself instead of using the pre-built one:
 
-By default this tracks the `main` branch. To pin a release, edit `docker-compose.yml`:
-
-```yaml
-args:
-  LEEDPDF_VERSION: v2.32.0
+```bash
+docker compose -f docker-compose.yml -f docker-compose.build.yml up --build -d
 ```
 
 ## License
