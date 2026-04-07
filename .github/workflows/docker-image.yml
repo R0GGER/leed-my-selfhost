@@ -9,8 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: R0GGER/public-iperf3-servers
-
+  IMAGE_NAME: R0GGER/leed-my-selfhost
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
